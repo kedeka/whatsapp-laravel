@@ -4,11 +4,11 @@ namespace Kedeka\WhatsappLaravel\Commands;
 
 use Illuminate\Console\Command;
 
-class WhatsappLaravelCommand extends Command
+class SendMessage extends Command
 {
-    public $signature = 'whatsapp-laravel';
+    public $signature = 'whatsapp:send-to {phone} {message}';
 
-    public $description = 'My command';
+    public $description = 'Send Message to Whatsapp Number';
 
     public function handle(): int
     {

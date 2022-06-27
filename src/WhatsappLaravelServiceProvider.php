@@ -4,7 +4,7 @@ namespace Kedeka\WhatsappLaravel;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Kedeka\WhatsappLaravel\Commands\WhatsappLaravelCommand;
+use Kedeka\WhatsappLaravel\Commands\SendMessage;
 
 class WhatsappLaravelServiceProvider extends PackageServiceProvider
 {
@@ -17,9 +17,7 @@ class WhatsappLaravelServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('whatsapp-laravel')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_whatsapp-laravel_table')
-            ->hasCommand(WhatsappLaravelCommand::class);
+            ->hasConfigFile(['whatsapp'])
+            ->hasCommand(SendMessage::class);
     }
 }

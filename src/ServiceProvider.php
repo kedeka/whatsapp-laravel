@@ -24,12 +24,7 @@ class ServiceProvider extends PackageServiceProvider
             ]);
     }
 
-    /**
-     * Bootstrap services.
-     *
-     * @return void
-     */
-    public function boot()
+    public function bootingPackage()
     {
         Rule::macro('whatsapp', function () {
             return new Rules\OnWhatsApp;

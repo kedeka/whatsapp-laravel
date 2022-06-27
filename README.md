@@ -44,8 +44,8 @@ php artisan vendor:publish --tag="whatsapp-laravel-views"
 ## Usage
 
 ```php
-$whatsappLaravel = new Kedeka\WhatsappLaravel();
-echo $whatsappLaravel->echoPhrase('Hello, Kedeka!');
+$whatsapp = new Kedeka\Whatsapp();
+echo $whatsapp->echoPhrase('Hello, Kedeka!');
 ```
 
 ## Testing

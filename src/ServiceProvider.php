@@ -16,7 +16,7 @@ class ServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package
-            ->name('whatsapp-laravel')
+            ->name('whatsapp')
             ->hasConfigFile(['whatsapp'])
             ->hasCommands([
                 Commands\SendMessage::class,

@@ -57,10 +57,7 @@
         "laravel": {
             "providers": [
                 "Kedeka\\WhatsappLaravel\\ServiceProvider"
-            ],
-            "aliases": {
-                "WhatsappLaravel": "Kedeka\\WhatsappLaravel\\Facades\\WhatsappLaravel"
-            }
+            ]
         }
     },
     "minimum-stability": "dev",

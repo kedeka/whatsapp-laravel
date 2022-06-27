@@ -21,7 +21,9 @@ class ServiceProvider extends PackageServiceProvider
             ->hasCommands([
                 Commands\SendMessage::class,
                 Commands\OnWhatsApp::class,
-            ]);
+            ])
+            ->hasTranslations()
+            ;
     }
 
     public function bootingPackage()

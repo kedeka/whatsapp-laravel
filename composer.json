@@ -56,7 +56,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Kedeka\\WhatsappLaravel\\WhatsappLaravelServiceProvider"
+                "Kedeka\\WhatsappLaravel\\ServiceProvider"
             ],
             "aliases": {
                 "WhatsappLaravel": "Kedeka\\WhatsappLaravel\\Facades\\WhatsappLaravel"

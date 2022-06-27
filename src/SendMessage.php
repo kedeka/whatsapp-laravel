@@ -22,7 +22,7 @@ class SendMessage implements Contracts\SendMessages
             'form_params' => [
                 'number' => $number,
                 'message' => $message,
-                'type' => $type,
+                'type' => $type->value,
             ]
         ]);
 

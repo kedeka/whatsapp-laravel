@@ -32,13 +32,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Kedeka\\WhatsappLaravel\\": "src",
-            "Kedeka\\WhatsappLaravel\\Database\\Factories\\": "database/factories"
+            "Kedeka\\Whatsapp\\": "src",
+            "Kedeka\\Whatsapp\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Kedeka\\WhatsappLaravel\\Tests\\": "tests"
+            "Kedeka\\Whatsapp\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -56,7 +56,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Kedeka\\WhatsappLaravel\\ServiceProvider"
+                "Kedeka\\Whatsapp\\ServiceProvider"
             ]
         }
     },

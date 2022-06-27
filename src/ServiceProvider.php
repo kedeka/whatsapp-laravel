@@ -1,9 +1,10 @@
 <?php
 
-namespace Kedeka\WhatsappLaravel;
+namespace Kedeka\Whatsapp;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
+use Illuminate\Validation\Rule;
 
 class ServiceProvider extends PackageServiceProvider
 {
@@ -21,5 +22,17 @@ class ServiceProvider extends PackageServiceProvider
                 Commands\SendMessage::class,
                 Commands\OnWhatsApp::class,
             ]);
+    }
+
+    /**
+     * Bootstrap services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        Rule::macro('whatsapp', function () {
+            return new Rules\OnWhatsApp;
+        });
     }
 }

@@ -1,9 +1,9 @@
 <?php
 
-namespace Kedeka\WhatsappLaravel\Commands;
+namespace Kedeka\Whatsapp\Commands;
 
 use Illuminate\Console\Command;
-use Kedeka\WhatsappLaravel\Enums\MessageType;
+use Kedeka\Whatsapp\Enums\MessageType;
 
 class OnWhatsApp extends Command
 {
@@ -14,7 +14,7 @@ class OnWhatsApp extends Command
     public function handle(): int
     {
         $phone = $this->argument('phone');
-        $exists = app(\Kedeka\WhatsappLaravel\OnWhatsApp::class)->check($phone);
+        $exists = app(\Kedeka\Whatsapp\OnWhatsApp::class)->check($phone);
         if($exists){
             $this->info('Phone Number ' . $phone . ' is on whastapp');
         }else{

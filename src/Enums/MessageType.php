@@ -1,6 +1,6 @@
 <?php
 
-namespace Kedeka\WhatsappLaravel\Enums;
+namespace Kedeka\Whatsapp\Enums;
 
 use Illuminate\Support\Str;
 

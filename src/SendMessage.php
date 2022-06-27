@@ -1,8 +1,8 @@
 <?php
-namespace Kedeka\WhatsappLaravel;
+namespace Kedeka\Whatsapp;
 
 use GuzzleHttp\Client;
-use Kedeka\WhatsappLaravel\Enums\MessageType;
+use Kedeka\Whatsapp\Enums\MessageType;
 
 class SendMessage implements Contracts\SendMessages
 {

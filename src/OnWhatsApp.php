@@ -1,6 +1,6 @@
 <?php
 
-namespace Kedeka\WhatsappLaravel;
+namespace Kedeka\Whatsapp;
 
 use GuzzleHttp\Client;
 

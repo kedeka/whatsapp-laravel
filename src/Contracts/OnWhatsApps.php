@@ -1,6 +1,6 @@
 <?php
 
-namespace Kedeka\WhatsappLaravel\Contracts;
+namespace Kedeka\Whatsapp\Contracts;
 
 interface OnWhatsApps
 {

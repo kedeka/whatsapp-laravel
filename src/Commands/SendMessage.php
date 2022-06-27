@@ -1,9 +1,9 @@
 <?php
 
-namespace Kedeka\WhatsappLaravel\Commands;
+namespace Kedeka\Whatsapp\Commands;
 
 use Illuminate\Console\Command;
-use Kedeka\WhatsappLaravel\Enums\MessageType;
+use Kedeka\Whatsapp\Enums\MessageType;
 
 class SendMessage extends Command
 {
@@ -21,7 +21,7 @@ class SendMessage extends Command
             'text' => $text
         ];
 
-        app(\Kedeka\WhatsappLaravel\SendMessage::class)->to($phone, $message, $type);
+        app(\Kedeka\Whatsapp\SendMessage::class)->to($phone, $message, $type);
 
         $this->comment('Message sent to ' . $phone);
 

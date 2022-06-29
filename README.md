@@ -41,11 +41,33 @@ Optionally, you can publish the views using
 php artisan vendor:publish --tag="whatsapp-laravel-views"
 ```
 
+## Configure .ENV
+
+to use these package you need to add these configuration in your .env file
+- set your `WHATSAPP_API_KEY` with your api key.
+- set your `WHATSAPP_API_SENDER` with the phone number of your device.
+- set your `WHATSAPP_API_DEVICE` with your device unique key.
+- set your `WHATSAPP_API_ENABLE` with true or false to enable or disable the whatsapp, if you don't set this to true then by default the value will be false.
+
 ## Usage
+
+### Usage Example
 
 ```php
 $whatsapp = new Kedeka\Whatsapp();
 echo $whatsapp->echoPhrase('Hello, Kedeka!');
+```
+
+### Send Text Message On Laravel Controller
+
+```php
+use Kedeka\Whatsapp\SendMessage;
+use Kedeka\Whatsapp\Enums\MessageType;
+
+$message['text'] = 'Your message goes here';
+$message['footer'] = 'This footer is optional, your footer message goes here';
+
+app(SendMessageAction::class)->to($whatsapp_number, $whatsapp_message, MessageType::Text);
 ```
 
 ## Testing

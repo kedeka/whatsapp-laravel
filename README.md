@@ -81,10 +81,106 @@ $message = [
 app(SendMessage::class)->to($phone, $message, MessageType::Text);
 ```
 
+### Send Text With Image Message
+
+```php
+use Kedeka\Whatsapp\SendMessage;
+use Kedeka\Whatsapp\Enums\MessageType;
+
+$phone = '0822544179xx'; // receipt whatsapp number
+
+$message = [
+    'text' => 'Your message goes here',
+    'image_url' => 'https://example.com/your-cute-image.jpg',
+];
+
+app(SendMessage::class)->to($phone, $message, MessageType::Image);
+```
+
+### Send Text With Button Message
+
+```php
+use Kedeka\Whatsapp\SendMessage;
+use Kedeka\Whatsapp\Enums\MessageType;
+
+$phone = '0822544179xx'; // receipt whatsapp number
+
+$message = [
+    'text' => 'Your message goes here',
+    'footer' => 'Your footer message',
+    'buttons' => [
+        ['label' => 'Button 1', 'type' => 'reply'],
+        ['label' => 'Button 2', 'type' => 'url', 'url' => 'https://deka.dev'],
+        ['label' => 'Button 3', 'type' => 'call', 'phone' => '62822544179xx'],
+        ...
+    ],
+];
+
+app(SendMessage::class)->to($phone, $message, MessageType::Button);
+```
+
+### Send Text With Template Button Message
+
+```php
+use Kedeka\Whatsapp\SendMessage;
+use Kedeka\Whatsapp\Enums\MessageType;
+
+$phone = '0822544179xx'; // receipt whatsapp number
+
+$message = [
+    'text' => 'Your message goes here',
+    'footer' => 'Your footer message',
+    'templateButtons' => [
+        ['id' => 'button-1', 'label' => 'Button 1', 'type' => 'reply'],
+        ['id' => 'button-2', 'label' => 'Button 2', 'type' => 'url', 'url' => 'https://deka.dev'],
+        ['id' => 'button-3', 'label' => 'Button 3', 'type' => 'call', 'phone' => '62822544179xx'],
+        ...
+    ],
+];
+
+app(SendMessage::class)->to($phone, $message, MessageType::Template);
+```
+
+### Send Text Section and Lists Item Message
+
+```php
+use Kedeka\Whatsapp\SendMessage;
+use Kedeka\Whatsapp\Enums\MessageType;
+
+$phone = '0822544179xx'; // receipt whatsapp number
+
+$message = [
+    'text' => 'Your message goes here',
+    'footer' => 'Your footer message',
+    'list' => [
+        [
+            'title' => 'Section 1',
+            'rows' => [
+                ['title' => 'List 1', 'description' => 'Description 1'],
+                ['title' => 'List 2', 'description' => 'Description 2'],
+                ['title' => 'List 3', 'description' => 'Description 3'],
+                ...
+            ]
+        ],
+        [
+            'title' => 'Section 2',
+            'rows' => [
+                ['title' => 'List 1', 'description' => 'Description 1'],
+                ['title' => 'List 2', 'description' => 'Description 2'],
+                ['title' => 'List 3', 'description' => 'Description 3'],
+                ...
+            ]
+        ],
+    ]
+];
+
+app(SendMessage::class)->to($phone, $message, MessageType::List);
+```
+
 ### Message Type
 | command to use            | type          | variable                              |
 |---------------------------|---------------|---------------------------------------|
-| MessageType::Text          | Text          | text (required), footer (optional)    |
+| MessageType::Text          | Text          | text (required)    |
 | MessageType::Image         | Text & Image  | text (required), image_url (required) |
 | MessageType::Button        | Text & Button | text (required), footer (optional),   |
 | MessageType::Template      | Template      | text (required), footer (optional), templateButtons (optional) |

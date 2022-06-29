@@ -1,10 +1,10 @@
 <?php
 
-namespace Kedeka\WhatsappLaravel\Tests;
+namespace Kedeka\Whatsapp\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Kedeka\WhatsappLaravel\WhatsappLaravelServiceProvider;
+use Kedeka\Whatsapp\ServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -13,14 +13,14 @@ class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'Kedeka\\WhatsappLaravel\\Database\\Factories\\'.class_basename($modelName).'Factory'
+            fn (string $modelName) => 'Kedeka\\Whatsapp\\Database\\Factories\\'.class_basename($modelName).'Factory'
         );
     }
 
     protected function getPackageProviders($app)
     {
         return [
-            WhatsappLaravelServiceProvider::class,
+            ServiceProvider::class,
         ];
     }
 

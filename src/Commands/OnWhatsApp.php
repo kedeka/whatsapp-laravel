@@ -3,7 +3,6 @@
 namespace Kedeka\Whatsapp\Commands;
 
 use Illuminate\Console\Command;
-use Kedeka\Whatsapp\Enums\MessageType;
 
 class OnWhatsApp extends Command
 {

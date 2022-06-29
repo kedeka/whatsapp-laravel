@@ -51,9 +51,23 @@ to use these package you need to add these configuration in your .env file
 
 ## Usage
 
+### Usage Example
+
 ```php
 $whatsapp = new Kedeka\Whatsapp();
 echo $whatsapp->echoPhrase('Hello, Kedeka!');
+```
+
+### Send Text Message On Laravel Controller
+
+```php
+use Kedeka\Whatsapp\SendMessage;
+use Kedeka\Whatsapp\Enums\MessageType;
+
+$message['text'] = 'Your message goes here';
+$message['footer'] = 'This footer is optional, your footer message goes here';
+
+app(SendMessageAction::class)->to($whatsapp_number, $whatsapp_message, MessageType::Text);
 ```
 
 ## Testing

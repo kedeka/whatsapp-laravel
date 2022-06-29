@@ -70,6 +70,20 @@ $message['footer'] = 'This footer is optional, your footer message goes here';
 app(SendMessageAction::class)->to($whatsapp_number, $whatsapp_message, MessageType::Text);
 ```
 
+## Message Type
+
+```php
+use Kedeka\Whatsapp\Enums\MessageType;
+echo MessageType::Text;
+```
+| command to use            | type          | variable                              |
+| MessageType:Text          | Text          | text (required), footer (optional)    |
+| MessageType:Image         | Text & Image  | text (required), image_url (required) |
+| MessageType:Button        | Text & Button | text (required), footer (optional),   |
+| MessageType:Template      | Template      | text (required), footer (optional), templateButtons (optional) |
+| MessageType:List          | List          | text (required), footer (optional),   |
+
+
 ## Testing
 
 ```bash

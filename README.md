@@ -112,7 +112,7 @@ $message = [
         ['label' => 'Button 1', 'type' => 'reply'],
         ['label' => 'Button 2', 'type' => 'url', 'url' => 'https://deka.dev'],
         ['label' => 'Button 3', 'type' => 'call', 'phone' => '62822544179xx'],
-        ...
+        // you can only send max: 3 buttons
     ],
 ];
 

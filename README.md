@@ -177,7 +177,7 @@ app(SendMessage::class)->to($phone, $message, MessageType::List);
 | MessageType::Text          | Text          | text (required)    |
 | MessageType::Image         | Text & Image  | text (required), image_url (required) |
 | MessageType::Button        | Text & Button | text (required), buttons[] (required), footer (optional),   |
-| MessageType::Template      | Template      | text (required), templateButtons[] (required), footer (optional), templateButtons (optional) |
+| MessageType::Template      | Template      | text (required), templateButtons[] (required), footer (optional) |
 | MessageType::List          | List          | text (required), list[] (required), footer (optional),   |
 
 ### Send Contact / VCARD

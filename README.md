@@ -43,7 +43,7 @@ php artisan vendor:publish --tag="whatsapp-laravel-views"
 
 ## Configure .ENV
 
-to use these package you need to add these configuration to your .env file
+to use these package you need to add these configuration in your .env file
 - set your `WHATSAPP_API_KEY` with your api key.
 - set your `WHATSAPP_API_SENDER` with the phone number of your device.
 - set your `WHATSAPP_API_DEVICE` with your device unique key.

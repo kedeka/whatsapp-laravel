@@ -11,39 +11,44 @@
 
 You can install the package via composer:
 
-```bash
-composer require kedeka/whatsapp-laravel
+add vcs repository first
+```json
+"repositories": [
+    {
+        "name": "kedeka/whatsapp-laravel",
+        "type": "vcs",
+        "url": "https://github.com/kedeka/whatsapp-laravel"
+    }
+],
 ```
 
-You can publish and run the migrations with:
-
+then run
 ```bash
-php artisan vendor:publish --tag="whatsapp-laravel-migrations"
-php artisan migrate
+composer require kedeka/whatsapp-laravel
 ```
 
 You can publish the config file with:
 
 ```bash
-php artisan vendor:publish --tag="whatsapp-laravel-config"
+php artisan vendor:publish --tag="whatsapp-config"
 ```
 
 This is the contents of the published config file:
 
 ```php
 return [
+    'key' => env('WHATSAPP_API_KEY'),
+    'sender' => env('WHATSAPP_API_SENDER'),
+    'device' => env('WHATSAPP_API_DEVICE'),
+    'url' => env('WHATSAPP_API_URL', 'https://kedeka.com/api'),
+    'enable' => env('WHATSAPP_API_ENABLE') ?: false
 ];
 ```
 
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="whatsapp-laravel-views"
-```
-
-## Configure .ENV
+## Configure .env
 
 to use these package you need to add these configuration in your .env file
+- set your `WHATSAPP_API_URL` with your api url.
 - set your `WHATSAPP_API_KEY` with your api key.
 - set your `WHATSAPP_API_SENDER` with the phone number of your device.
 - set your `WHATSAPP_API_DEVICE` with your device unique key.
@@ -51,39 +56,53 @@ to use these package you need to add these configuration in your .env file
 
 ## Usage
 
-### Usage Example
+### Check Phone Number Is Whatsapp Contact
 
 ```php
-$whatsapp = new Kedeka\Whatsapp();
-echo $whatsapp->echoPhrase('Hello, Kedeka!');
+use Kedeka\Whatsapp\OnWhastApp;
+
+$phone = '0822544179xx'; // receipt whatsapp number
+
+app(OnWhastApp::class)->check($phone);
 ```
 
-### Send Text Message On Laravel Controller
+### Send Text Message
 
 ```php
 use Kedeka\Whatsapp\SendMessage;
 use Kedeka\Whatsapp\Enums\MessageType;
 
-$message['text'] = 'Your message goes here';
-$message['footer'] = 'This footer is optional, your footer message goes here';
+$phone = '0822544179xx'; // receipt whatsapp number
 
-app(SendMessageAction::class)->to($whatsapp_number, $whatsapp_message, MessageType::Text);
+$message = [
+    'text' => 'Your message goes here',
+];
+
+app(SendMessage::class)->to($phone, $message, MessageType::Text);
 ```
 
-## Message Type
-
-```php
-use Kedeka\Whatsapp\Enums\MessageType;
-echo MessageType::Text;
-```
+### Message Type
 | command to use            | type          | variable                              |
 |---------------------------|---------------|---------------------------------------|
-| MessageType:Text          | Text          | text (required), footer (optional)    |
-| MessageType:Image         | Text & Image  | text (required), image_url (required) |
-| MessageType:Button        | Text & Button | text (required), footer (optional),   |
-| MessageType:Template      | Template      | text (required), footer (optional), templateButtons (optional) |
-| MessageType:List          | List          | text (required), footer (optional),   |
+| MessageType::Text          | Text          | text (required), footer (optional)    |
+| MessageType::Image         | Text & Image  | text (required), image_url (required) |
+| MessageType::Button        | Text & Button | text (required), footer (optional),   |
+| MessageType::Template      | Template      | text (required), footer (optional), templateButtons (optional) |
+| MessageType::List          | List          | text (required), footer (optional),   |
 
+### Send Contact / VCARD
+
+```php
+use Kedeka\Whatsapp\SendContact;
+
+$phone = '0822544179xx'; // receipt whatsapp number
+$contact = '62822511610xx'; // contact whatsapp number, must start with country code eg. 62
+$name = 'Rilo Arbabillah'; // required
+$nickname = 'Rilo'; // optional
+$organization = 'DEKA'; // optional
+
+app(SendContact::class)->to($phone, $contact, $name, $nickname, $organization);
+```
 
 ## Testing
 

@@ -41,6 +41,14 @@ Optionally, you can publish the views using
 php artisan vendor:publish --tag="whatsapp-laravel-views"
 ```
 
+## Configure .ENV
+
+to use these package you need to add these configuration to your .env file
+- set your `WHATSAPP_API_KEY` with your api key.
+- set your `WHATSAPP_API_SENDER` with the phone number of your device.
+- set your `WHATSAPP_API_DEVICE` with your device unique key.
+- set your `WHATSAPP_API_ENABLE` with true or false to enable or disable the whatsapp, if you don't set this to true then by default the value will be false.
+
 ## Usage
 
 ```php

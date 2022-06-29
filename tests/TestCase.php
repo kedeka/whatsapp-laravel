@@ -4,7 +4,7 @@ namespace Kedeka\Whatsapp\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Kedeka\Whatsapp\WhatsappServiceProvider;
+use Kedeka\Whatsapp\ServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -20,7 +20,7 @@ class TestCase extends Orchestra
     protected function getPackageProviders($app)
     {
         return [
-            WhatsappServiceProvider::class,
+            ServiceProvider::class,
         ];
     }
 

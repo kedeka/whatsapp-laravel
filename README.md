@@ -77,6 +77,7 @@ use Kedeka\Whatsapp\Enums\MessageType;
 echo MessageType::Text;
 ```
 | command to use            | type          | variable                              |
+|---------------------------|---------------|---------------------------------------|
 | MessageType:Text          | Text          | text (required), footer (optional)    |
 | MessageType:Image         | Text & Image  | text (required), image_url (required) |
 | MessageType:Button        | Text & Button | text (required), footer (optional),   |

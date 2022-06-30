@@ -4,7 +4,7 @@ namespace Kedeka\Whatsapp;
 
 use GuzzleHttp\Client;
 
-class SendMessage implements Contracts\SendContacts
+class SendContact implements Contracts\SendContacts
 {
     public function to($number, $contact, $name, $nickname = null, $organization = null)
     {

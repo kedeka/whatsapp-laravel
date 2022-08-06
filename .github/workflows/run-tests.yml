@@ -55,4 +55,5 @@ jobs:
           composer update --${{ matrix.stability }} --prefer-dist --no-interaction
 
       - name: Execute tests
+        if: "matrix.laravel >= 8"
         run: vendor/bin/pest

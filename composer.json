@@ -32,8 +32,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Kedeka\\Whatsapp\\": "src",
-            "Kedeka\\Whatsapp\\Database\\Factories\\": "database/factories"
+            "Kedeka\\Whatsapp\\": "src"
         }
     },
     "autoload-dev": {

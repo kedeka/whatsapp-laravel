@@ -56,5 +56,3 @@ jobs:
 
       - name: Execute tests
         run: vendor/bin/pest
-        exclude:
-          - laravel: 7.*

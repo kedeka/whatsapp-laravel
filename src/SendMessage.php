@@ -14,6 +14,12 @@ class SendMessage implements Contracts\SendMessages
 
         $endpoint = sprintf('%s/%s/%s', $apiUrl, $device, 'send-message');
 
+        if(is_string($message)){
+            $message = [
+                'text' => $message
+            ];
+        }
+
         $response = $client->request('POST', $endpoint, [
             'headers' => [
                 'Authorization' => 'Bearer ' . config('whatsapp.key'),

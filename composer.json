@@ -56,7 +56,10 @@
         "laravel": {
             "providers": [
                 "Kedeka\\Whatsapp\\ServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "Whatsapp": "Kedeka\\Whatsapp\\Facades\\WhatsApp"
+            }
         }
     },
     "minimum-stability": "dev",

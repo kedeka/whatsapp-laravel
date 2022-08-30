@@ -13,7 +13,7 @@ class SendContact implements Contracts\SendContacts
         $apiUrl = config('whatsapp.url');
 
         $endpoint = sprintf('%s/%s/%s', $apiUrl, $device, 'send-contact');
-
+        $number = preg_replace("/[^0-9]/", "", $number);
         $response = $client->request('POST', $endpoint, [
             'headers' => [
                 'Authorization' => 'Bearer ' . config('whatsapp.key'),

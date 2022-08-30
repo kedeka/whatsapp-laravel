@@ -20,6 +20,8 @@ class SendMessage implements Contracts\SendMessages
             ];
         }
 
+        $number = preg_replace("/[^0-9]/", "", $number);
+
         $response = $client->request('POST', $endpoint, [
             'headers' => [
                 'Authorization' => 'Bearer ' . config('whatsapp.key'),

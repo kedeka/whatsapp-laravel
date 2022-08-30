@@ -14,6 +14,8 @@ class OnWhatsApp implements Contracts\OnWhatsApps
 
         $endpoint = sprintf('%s/%s/%s', $apiUrl, $device, 'on-whatsapp');
 
+        $phone = preg_replace("/[^0-9]/", "", $phone);
+
         $response = $client->request('POST', $endpoint, [
             'headers' => [
                 'Authorization' => 'Bearer ' . config('whatsapp.key'),

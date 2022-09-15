@@ -21,6 +21,7 @@ class ServiceProvider extends PackageServiceProvider
             ->hasCommands([
                 Commands\SendMessage::class,
                 Commands\OnWhatsApp::class,
+                Commands\DeviceIsRunning::class,
             ])
             ->hasTranslations()
             ;

@@ -18,6 +18,11 @@ class WhatsApp
         return new OnWhatsApp;
     }
 
+    public function deviceIsRunning()
+    {
+        return new DeviceIsRunning;
+    }
+
     public function template(string $template, array $replaces)
     {
         return str_replace(array_map(fn ($key) => "#{$key}", array_keys($replaces)), array_values($replaces), $template);

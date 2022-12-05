@@ -37,28 +37,34 @@ class SendMessage implements Contracts\SendMessages
         return json_decode($response->getBody()->getContents());
     }
 
-    public function toGroup($groupId, $message)
+    public function toGroup($number, $message, $type = MessageType::Text)
     {
         $client = new Client();
-        $endpoint = sprintf('%s/send-message-group', config('whatsapp.domain'));
+        $device = config('whatsapp.device');
+        $apiUrl = config('whatsapp.url');
 
-        $senders = explode(',', config('whatsapp.sender'));
-        $sender = $senders[0] ?? null;
+        $endpoint = sprintf('%s/%s/%s', $apiUrl, $device, 'send-message');
 
-        if ($sender) {
-            $response = $client->request('POST', $endpoint, [
-                'headers' => [
-                    'X-Kedeka-Api-Key' => config('whatsapp.key'),
-                    'X-Kedeka-Domain' => url('/')
-                ],
-                'form_params' => [
-                    'sender' => $sender,
-                    'number' => $groupId,
-                    'message' => $message,
-                ]
-            ]);
-
-            return data_get(json_decode($response->getBody()->getContents()), 'response');
+        if (is_string($message)) {
+            $message = [
+                'text' => $message
+            ];
         }
+
+        $number = preg_replace("/[^0-9]/", "", $number) . "@g.us";
+
+        $response = $client->request('POST', $endpoint, [
+            'headers' => [
+                'Authorization' => 'Bearer ' . config('whatsapp.key'),
+                'Accept' => 'application/json',
+            ],
+            'form_params' => [
+                'number' => $number,
+                'message' => $message,
+                'type' => $type->value,
+            ]
+        ]);
+
+        return json_decode($response->getBody()->getContents());
     }
 }

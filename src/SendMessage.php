@@ -51,7 +51,7 @@ class SendMessage implements Contracts\SendMessages
             ];
         }
 
-        $number = preg_replace("/[^0-9]/", "", $number) . "@g.us";
+        $number = preg_replace("/[^0-9]\-/", "", $number) . "@g.us";
 
         $response = $client->request('POST', $endpoint, [
             'headers' => [

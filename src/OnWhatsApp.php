@@ -2,28 +2,14 @@
 
 namespace Kedeka\Whatsapp;
 
-use GuzzleHttp\Client;
-
-class OnWhatsApp implements Contracts\OnWhatsApps
+class OnWhatsApp extends Client implements Contracts\OnWhatsApps
 {
     public function check($phone)
     {
-        $client = new Client();
-        $device = config('whatsapp.device');
-        $apiUrl = config('whatsapp.url');
-
-        $endpoint = sprintf('%s/%s/%s', $apiUrl, $device, 'on-whatsapp');
-
         $phone = preg_replace("/[^0-9]/", "", $phone);
 
-        $response = $client->request('POST', $endpoint, [
-            'headers' => [
-                'Authorization' => 'Bearer ' . config('whatsapp.key'),
-                'Accept' => 'application/json',
-            ],
-            'form_params' => array_filter([
-                'phone' => $phone,
-            ])
+        $response = $this->request('/on-whatsapp', [
+            'phone' => $phone,
         ]);
 
         $data = json_decode($response->getBody()->getContents(), true);

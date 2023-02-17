@@ -2,7 +2,7 @@
 
 namespace Kedeka\Whatsapp;
 
-class ProfileName extends Client implements Contracts\OnWhatsApps
+class ProfileName extends Client implements Contracts\Fetch
 {
     public function fetch($phone)
     {

@@ -9,6 +9,7 @@ class Client
     protected $apiUrl;
     protected $apiKey;
     protected $client;
+    protected $timeout;
 
     public function __construct(array $config = [])
     {
@@ -23,6 +24,7 @@ class Client
         $this->device = $config['device'];
         $this->apiUrl = $config['url'];
         $this->apiKey = $config['key'];
+        $this->timeout = $config['timeout'] ?: 15;
 
 
         return $this;
@@ -50,6 +52,7 @@ class Client
                 'Accept' => 'application/json',
             ],
             'form_params' => $params,
+            'timeout' => $this->timeout,
         ]);
     }
 }

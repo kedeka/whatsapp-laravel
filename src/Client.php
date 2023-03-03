@@ -24,7 +24,7 @@ class Client
         $this->device = $config['device'];
         $this->apiUrl = $config['url'];
         $this->apiKey = $config['key'];
-        $this->timeout = $config['timeout'] ?: 15;
+        $this->timeout = $config['timeout'] ?: 120;
 
 
         return $this;

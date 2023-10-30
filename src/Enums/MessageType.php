@@ -11,6 +11,7 @@ enum MessageType: int
     case Button = 2;
     case Template = 3;
     case List = 4;
+    case Document = 5;
 
     public function label(): string
     {
@@ -20,6 +21,7 @@ enum MessageType: int
             self::Button => 'Button',
             self::Template => 'Template',
             self::List => 'List',
+            self::Document => 'Document',
         };
     }
 
@@ -31,6 +33,7 @@ enum MessageType: int
             self::Button => 'button',
             self::Template => 'template',
             self::List => 'list',
+            self::Document => 'document',
         };
     }
 
